@@ -8,6 +8,8 @@
     write.m
     generate.m
     sanity_checks.m
+    #polredabs_jv.m
+#    polredabs.m
     galois_orbits.m
     LLL.m
     modify.m
@@ -15,11 +17,13 @@
     height.m
     base_change.m
     utils.m
-
+    query.m
+    
     lmfdb_upload
     {
       magma_to_lmfdb.m
       utils.m
     }
   }
+  +../../Belyi/Code/spec
 }
