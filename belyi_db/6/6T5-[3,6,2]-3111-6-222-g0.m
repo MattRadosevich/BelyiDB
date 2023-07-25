@@ -5,7 +5,7 @@ Base Field Data
 */
 
 base_field_data := [* *];
-K1<nu1> := NumberField(Polynomial(\[1, 1, 1]));
+K1<nu1> := RationalsAsNumberField();
 place1 := InfinitePlaces(K1)[1];
 conj1 := false;
 CC<I> := ComplexField(20);
@@ -21,11 +21,9 @@ Belyi Maps
 curves := [* *];
 maps := [* *];
 K1<nu1> := K1;
-aInvs1 := [0,0,0,15*nu1 + 15,22];
-E1 := EllipticCurve(aInvs1);
-X1 := BaseChange(E1, K1);
-KX1<x,y> := FunctionField(X1);
-phi1 := KX1!((1/16*x^2 - 1/4*nu1*x + 1/16*(-7*nu1 - 7))/(x^2 - 4*nu1*x - 4*nu1 - 4)*y + 1/2);
+X1 := Curve(ProjectiveSpace(PolynomialRing(K1, 2)));
+KX1<x> := FunctionField(X1);
+phi1 := KX1!((216*x^5 + 5832*x^4 + 58320*x^3 + 314928*x^2 + 1417176*x + 4251528)/(x^6 + 162*x^5 + 7047*x^4 + 43740*x^3 + 413343*x^2 + 1062882*x + 4782969));
 Append(~curves, X1);
 Append(~maps, phi1);
 s`BelyiDBBelyiCurves := curves;
@@ -35,44 +33,46 @@ s`BelyiDBBelyiMaps := maps;
 auto printing
 */
 
-s`BelyiDBName := "6T4-[3,3,3]-33-33-33-g1";
-s`BelyiDBFilename := "6T4-[3,3,3]-33-33-33-g1.m";
+s`BelyiDBName := "6T5-[3,6,2]-3111-6-222-g0";
+s`BelyiDBFilename := "6T5-[3,6,2]-3111-6-222-g0.m";
 s`BelyiDBDegree := 6;
-s`BelyiDBOrders := \[ 3, 3, 3 ];
+s`BelyiDBOrders := \[ 3, 6, 2 ];
 s`BelyiDBType := "Euclidean";
-s`BelyiDBGenus := 1;
+s`BelyiDBGenus := 0;
 s`BelyiDBSize := 1;
 s`BelyiDBPointedSize := 1;
 s`BelyiDBPermutationTriple := [ PermutationGroup<6 |  
 \[ 2, 3, 4, 5, 6, 1 ],
 \[ 2, 1, 3, 4, 5, 6 ]:
  Order := 720 > |
-[ 6, 4, 2, 3, 1, 5 ],
-[ 3, 1, 2, 6, 4, 5 ],
-[ 6, 1, 5, 3, 4, 2 ]
+[ 3, 2, 5, 4, 1, 6 ],
+[ 4, 3, 6, 5, 2, 1 ],
+[ 4, 5, 6, 1, 2, 3 ]
 ];
 s`BelyiDBAutomorphismGroup := PermutationGroup<6 |  
-\[ 4, 5, 6, 1, 2, 3 ]:
- Order := 2 >;
-s`BelyiDBPointedAutomorphismGroup := PermutationGroup<6 |   >;
+\[ 5, 6, 1, 2, 3, 4 ]:
+ Order := 3 >;
+s`BelyiDBPointedAutomorphismGroup := PermutationGroup<6 |  
+\[ 5, 6, 1, 2, 3, 4 ]:
+ Order := 3 >;
 s`BelyiDBMonodromyGroup := PermutationGroup<6 |  
-\[ 6, 4, 2, 3, 1, 5 ],
-\[ 3, 1, 2, 6, 4, 5 ],
-\[ 6, 1, 5, 3, 4, 2 ]:
- Order := 12 >;
+\[ 3, 2, 5, 4, 1, 6 ],
+\[ 4, 3, 6, 5, 2, 1 ],
+\[ 4, 5, 6, 1, 2, 3 ]:
+ Order := 18 >;
 s`BelyiDBPassport := [ PowerSequence(PermutationGroup<6 |  
-\[ 6, 4, 2, 3, 1, 5 ],
-\[ 3, 1, 2, 6, 4, 5 ],
-\[ 6, 1, 5, 3, 4, 2 ]:
- Order := 12 >) |
+\[ 3, 2, 5, 4, 1, 6 ],
+\[ 4, 3, 6, 5, 2, 1 ],
+\[ 4, 5, 6, 1, 2, 3 ]:
+ Order := 18 >) |
 [ PermutationGroup<6 |  
-\[ 6, 4, 2, 3, 1, 5 ],
-\[ 3, 1, 2, 6, 4, 5 ],
-\[ 6, 1, 5, 3, 4, 2 ]:
- Order := 12 > |
-[ 6, 4, 2, 3, 1, 5 ],
-[ 3, 4, 5, 6, 1, 2 ],
-[ 3, 1, 2, 6, 4, 5 ]
+\[ 3, 2, 5, 4, 1, 6 ],
+\[ 4, 3, 6, 5, 2, 1 ],
+\[ 4, 5, 6, 1, 2, 3 ]:
+ Order := 18 > |
+[ 5, 2, 1, 4, 3, 6 ],
+[ 6, 5, 2, 1, 4, 3 ],
+[ 6, 3, 2, 5, 4, 1 ]
 ]
 ];
 s`BelyiDBPointedPassport := [ PowerSequence(PermutationGroup<6 |  
@@ -83,9 +83,9 @@ s`BelyiDBPointedPassport := [ PowerSequence(PermutationGroup<6 |
 \[ 2, 3, 4, 5, 6, 1 ],
 \[ 2, 1, 3, 4, 5, 6 ]:
  Order := 720 > |
-[ 6, 4, 2, 3, 1, 5 ],
-[ 3, 1, 2, 6, 4, 5 ],
-[ 6, 1, 5, 3, 4, 2 ]
+[ 3, 2, 5, 4, 1, 6 ],
+[ 4, 3, 6, 5, 2, 1 ],
+[ 4, 5, 6, 1, 2, 3 ]
 ]
 ];
 

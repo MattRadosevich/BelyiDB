@@ -5,7 +5,7 @@ Base Field Data
 */
 
 base_field_data := [* *];
-K1<nu1> := NumberField(Polynomial(\[1, 0, 1]));
+K1<nu1> := RationalsAsNumberField();
 place1 := InfinitePlaces(K1)[1];
 conj1 := false;
 CC<I> := ComplexField(20);
@@ -21,9 +21,11 @@ Belyi Maps
 curves := [* *];
 maps := [* *];
 K1<nu1> := K1;
-X1 := Curve(ProjectiveSpace(PolynomialRing(K1, 2)));
-KX1<x> := FunctionField(X1);
-phi1 := KX1!((1/64*x^8 + 1/4*(nu1 + 2)*x^7 + 1/4*(32*nu1 + 17)*x^6 + (89*nu1 - 22)*x^5 + 1/2*(624*nu1 - 1085)*x^4 + (-1060*nu1 - 2760)*x^3 + (-9152*nu1 - 2236)*x^2 + (-12560*nu1 + 13920)*x + (8064*nu1 + 14852))/(x^7 + 16*nu1*x^6 - 44*x^5 + 624*nu1*x^4 - 5520*x^3 - 18304*nu1*x^2 + 27840*x + 16128*nu1));
+aInvs1 := [ 0, 0, 0, 4, 0 ];
+E1 := EllipticCurve(aInvs1);
+X1 := BaseChange(E1, K1);
+KX1<x,y> := FunctionField(X1);
+phi1 := KX1!((-x^4 + 8*x^2 - 16)/(16*x^2));
 Append(~curves, X1);
 Append(~maps, phi1);
 s`BelyiDBBelyiCurves := curves;
@@ -33,44 +35,47 @@ s`BelyiDBBelyiMaps := maps;
 auto printing
 */
 
-s`BelyiDBName := "8T20-[4,4,2]-44-44-221111-g0";
-s`BelyiDBFilename := "8T20-[4,4,2]-44-44-221111-g0.m";
+s`BelyiDBName := "8T2-[2,4,4]-2222-44-44-g1";
+s`BelyiDBFilename := "8T2-[2,4,4]-2222-44-44-g1.m";
 s`BelyiDBDegree := 8;
-s`BelyiDBOrders := \[ 4, 4, 2 ];
+s`BelyiDBOrders := \[ 2, 4, 4 ];
 s`BelyiDBType := "Euclidean";
-s`BelyiDBGenus := 0;
+s`BelyiDBGenus := 1;
 s`BelyiDBSize := 1;
 s`BelyiDBPointedSize := 1;
 s`BelyiDBPermutationTriple := [ PermutationGroup<8 |  
 \[ 2, 3, 4, 5, 6, 7, 8, 1 ],
 \[ 2, 1, 3, 4, 5, 6, 7, 8 ]:
  Order := 40320 > |
-[ 2, 4, 1, 3, 7, 5, 8, 6 ],
-[ 3, 1, 6, 8, 4, 2, 5, 7 ],
-[ 1, 2, 5, 6, 3, 4, 7, 8 ]
+[ 5, 6, 7, 8, 1, 2, 3, 4 ],
+[ 4, 5, 6, 3, 8, 1, 2, 7 ],
+[ 2, 3, 8, 5, 6, 7, 4, 1 ]
 ];
 s`BelyiDBAutomorphismGroup := PermutationGroup<8 |  
-\[ 7, 8, 5, 6, 3, 4, 1, 2 ]:
+\[ 6, 7, 4, 1, 2, 3, 8, 5 ],
+\[ 8, 1, 2, 7, 4, 5, 6, 3 ]:
+ Order := 8 >;
+s`BelyiDBPointedAutomorphismGroup := PermutationGroup<8 |  
+\[ 5, 6, 7, 8, 1, 2, 3, 4 ]:
  Order := 2 >;
-s`BelyiDBPointedAutomorphismGroup := PermutationGroup<8 |   >;
 s`BelyiDBMonodromyGroup := PermutationGroup<8 |  
-\[ 2, 4, 1, 3, 7, 5, 8, 6 ],
-\[ 3, 1, 6, 8, 4, 2, 5, 7 ],
-\[ 1, 2, 5, 6, 3, 4, 7, 8 ]:
- Order := 32 >;
+\[ 5, 6, 7, 8, 1, 2, 3, 4 ],
+\[ 4, 5, 6, 3, 8, 1, 2, 7 ],
+\[ 2, 3, 8, 5, 6, 7, 4, 1 ]:
+ Order := 8 >;
 s`BelyiDBPassport := [ PowerSequence(PermutationGroup<8 |  
-\[ 2, 4, 1, 3, 7, 5, 8, 6 ],
-\[ 3, 1, 6, 8, 4, 2, 5, 7 ],
-\[ 1, 2, 5, 6, 3, 4, 7, 8 ]:
- Order := 32 >) |
+\[ 5, 6, 7, 8, 1, 2, 3, 4 ],
+\[ 4, 5, 6, 3, 8, 1, 2, 7 ],
+\[ 2, 3, 8, 5, 6, 7, 4, 1 ]:
+ Order := 8 >) |
 [ PermutationGroup<8 |  
-\[ 2, 4, 1, 3, 7, 5, 8, 6 ],
-\[ 3, 1, 6, 8, 4, 2, 5, 7 ],
-\[ 1, 2, 5, 6, 3, 4, 7, 8 ]:
- Order := 32 > |
-[ 2, 4, 1, 3, 7, 5, 8, 6 ],
-[ 3, 1, 6, 8, 4, 2, 5, 7 ],
-[ 1, 2, 5, 6, 3, 4, 7, 8 ]
+\[ 5, 6, 7, 8, 1, 2, 3, 4 ],
+\[ 4, 5, 6, 3, 8, 1, 2, 7 ],
+\[ 2, 3, 8, 5, 6, 7, 4, 1 ]:
+ Order := 8 > |
+[ 5, 6, 7, 8, 1, 2, 3, 4 ],
+[ 4, 5, 6, 3, 8, 1, 2, 7 ],
+[ 2, 3, 8, 5, 6, 7, 4, 1 ]
 ]
 ];
 s`BelyiDBPointedPassport := [ PowerSequence(PermutationGroup<8 |  
@@ -81,9 +86,9 @@ s`BelyiDBPointedPassport := [ PowerSequence(PermutationGroup<8 |
 \[ 2, 3, 4, 5, 6, 7, 8, 1 ],
 \[ 2, 1, 3, 4, 5, 6, 7, 8 ]:
  Order := 40320 > |
-[ 2, 4, 1, 3, 7, 5, 8, 6 ],
-[ 3, 1, 6, 8, 4, 2, 5, 7 ],
-[ 1, 2, 5, 6, 3, 4, 7, 8 ]
+[ 5, 6, 7, 8, 1, 2, 3, 4 ],
+[ 4, 5, 6, 3, 8, 1, 2, 7 ],
+[ 2, 3, 8, 5, 6, 7, 4, 1 ]
 ]
 ];
 

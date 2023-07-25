@@ -44,67 +44,52 @@ s`BelyiDBGenus := 1;
 s`BelyiDBSize := 1;
 s`BelyiDBPointedSize := 1;
 s`BelyiDBPermutationTriple := [ PermutationGroup<6 |  
-\[ 2, 3, 4, 5, 6, 1 ]:
+\[ 2, 3, 4, 5, 6, 1 ],
+\[ 2, 1, 3, 4, 5, 6 ]:
+ Order := 720 > |
+[ 6, 1, 2, 3, 4, 5 ],
+[ 4, 5, 6, 1, 2, 3 ],
+[ 5, 6, 1, 2, 3, 4 ]
+];
+s`BelyiDBAutomorphismGroup := PermutationGroup<6 |  
+\[ 6, 1, 2, 3, 4, 5 ]:
+ Order := 6 >;
+s`BelyiDBPointedAutomorphismGroup := PermutationGroup<6 |  
+\[ 6, 1, 2, 3, 4, 5 ]:
+ Order := 6 >;
+s`BelyiDBMonodromyGroup := PermutationGroup<6 |  
+\[ 6, 1, 2, 3, 4, 5 ],
+\[ 4, 5, 6, 1, 2, 3 ],
+\[ 5, 6, 1, 2, 3, 4 ]:
+ Order := 6 >;
+s`BelyiDBPassport := [ PowerSequence(PermutationGroup<6 |  
+\[ 6, 1, 2, 3, 4, 5 ],
+\[ 4, 5, 6, 1, 2, 3 ],
+\[ 5, 6, 1, 2, 3, 4 ]:
+ Order := 6 >) |
+[ PermutationGroup<6 |  
+\[ 6, 1, 2, 3, 4, 5 ],
+\[ 4, 5, 6, 1, 2, 3 ],
+\[ 5, 6, 1, 2, 3, 4 ]:
  Order := 6 > |
 [ 2, 3, 4, 5, 6, 1 ],
 [ 4, 5, 6, 1, 2, 3 ],
 [ 3, 4, 5, 6, 1, 2 ]
+]
 ];
-s`BelyiDBAutomorphismGroup := PermutationGroup<6 |  
-\[ 2, 3, 4, 5, 6, 1 ]:
- Order := 6 >;
-s`BelyiDBPointedAutomorphismGroup := PermutationGroup<6 |  
-\[ 2, 3, 4, 5, 6, 1 ]:
- Order := 6 >;
-s`BelyiDBMonodromyGroup := PermutationGroup<6 |  
+s`BelyiDBPointedPassport := [ PowerSequence(PermutationGroup<6 |  
 \[ 2, 3, 4, 5, 6, 1 ],
-\[ 4, 5, 6, 1, 2, 3 ],
-\[ 3, 4, 5, 6, 1, 2 ]:
- Order := 6 >;
-s`BelyiDBPassport := [ PowerSequence(PermutationGroup<6 |  
-\[ 2, 3, 4, 5, 6, 1 ],
-\[ 4, 5, 6, 1, 2, 3 ],
-\[ 3, 4, 5, 6, 1, 2 ]:
- Order := 6 >) |
+\[ 2, 1, 3, 4, 5, 6 ]:
+ Order := 720 >) |
 [ PermutationGroup<6 |  
 \[ 2, 3, 4, 5, 6, 1 ],
-\[ 4, 5, 6, 1, 2, 3 ],
-\[ 3, 4, 5, 6, 1, 2 ]:
- Order := 6 > |
+\[ 2, 1, 3, 4, 5, 6 ]:
+ Order := 720 > |
 [ 6, 1, 2, 3, 4, 5 ],
 [ 4, 5, 6, 1, 2, 3 ],
 [ 5, 6, 1, 2, 3, 4 ]
 ]
 ];
-s`BelyiDBPointedPassport := [ PowerSequence(PermutationGroup<6 |  
-\[ 2, 3, 4, 5, 6, 1 ]:
- Order := 6 >) |
-[ PermutationGroup<6 |  
-\[ 2, 3, 4, 5, 6, 1 ]:
- Order := 6 > |
-[ 2, 3, 4, 5, 6, 1 ],
-[ 4, 5, 6, 1, 2, 3 ],
-[ 3, 4, 5, 6, 1, 2 ]
-]
-];
-s`BelyiDBGaloisOrbits := [ PowerSequence(PowerSequence(PermutationGroup<6 |  
-\[ 2, 3, 4, 5, 6, 1 ]:
- Order := 6 >)) |
-[ PowerSequence(PermutationGroup<6 |  
-\[ 2, 3, 4, 5, 6, 1 ]:
- Order := 6 >) |
-[ PermutationGroup<6 |  
-\[ 2, 3, 4, 5, 6, 1 ]:
- Order := 6 > |
-[ 2, 3, 4, 5, 6, 1 ],
-[ 4, 5, 6, 1, 2, 3 ],
-[ 3, 4, 5, 6, 1, 2 ]
-]
-]
-];
-s`BelyiDBSanityCheckTiming := 0.0100000000000000p15;
-s`BelyiDBLocalSanityCheckTiming := 0.0100000000000000p15;
-s`BelyiDBLocalSanityCheckPrime := 101;
 
 /*
 Numerical Data

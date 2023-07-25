@@ -42,9 +42,9 @@ s`BelyiDBGenus := 0;
 s`BelyiDBSize := 1;
 s`BelyiDBPointedSize := 1;
 s`BelyiDBPermutationTriple := [ PermutationGroup<4 |  
-\[ 3, 2, 4, 1 ],
-\[ 1, 3, 4, 2 ]:
- Order := 12 > |
+\[ 2, 3, 4, 1 ],
+\[ 2, 1, 3, 4 ]:
+ Order := 24 > |
 [ 2, 3, 1, 4 ],
 [ 3, 2, 4, 1 ],
 [ 1, 4, 2, 3 ]
@@ -72,39 +72,18 @@ s`BelyiDBPassport := [ PowerSequence(PermutationGroup<4 |
 ]
 ];
 s`BelyiDBPointedPassport := [ PowerSequence(PermutationGroup<4 |  
-\[ 3, 2, 4, 1 ],
-\[ 1, 3, 4, 2 ]:
- Order := 12 >) |
+\[ 2, 3, 4, 1 ],
+\[ 2, 1, 3, 4 ]:
+ Order := 24 >) |
 [ PermutationGroup<4 |  
-\[ 3, 2, 4, 1 ],
-\[ 1, 3, 4, 2 ]:
- Order := 12 > |
+\[ 2, 3, 4, 1 ],
+\[ 2, 1, 3, 4 ]:
+ Order := 24 > |
 [ 2, 3, 1, 4 ],
 [ 3, 2, 4, 1 ],
 [ 1, 4, 2, 3 ]
 ]
 ];
-s`BelyiDBGaloisOrbits := [ PowerSequence(PowerSequence(PermutationGroup<4 |  
-\[ 3, 2, 4, 1 ],
-\[ 1, 3, 4, 2 ]:
- Order := 12 >)) |
-[ PowerSequence(PermutationGroup<4 |  
-\[ 3, 2, 4, 1 ],
-\[ 1, 3, 4, 2 ]:
- Order := 12 >) |
-[ PermutationGroup<4 |  
-\[ 3, 2, 4, 1 ],
-\[ 1, 3, 4, 2 ]:
- Order := 12 > |
-[ 2, 3, 1, 4 ],
-[ 3, 2, 4, 1 ],
-[ 1, 4, 2, 3 ]
-]
-]
-];
-s`BelyiDBSanityCheckTiming := 0.0100000000000000p15;
-s`BelyiDBLocalSanityCheckTiming := 0.000000000000000p15;
-s`BelyiDBLocalSanityCheckPrime := 101;
 
 /*
 Numerical Data

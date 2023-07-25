@@ -25,7 +25,7 @@ aInvs1 := [ 0, 0, 0, -1, 0 ];
 E1 := EllipticCurve(aInvs1);
 X1 := BaseChange(E1, K1);
 KX1<x,y> := FunctionField(X1);
-phi1 := KX1!(-1/(x^2 - 1));
+phi1 := KX1!(x^2/(x^2 - 1));
 Append(~curves, X1);
 Append(~maps, phi1);
 s`BelyiDBBelyiCurves := curves;
@@ -44,8 +44,9 @@ s`BelyiDBGenus := 1;
 s`BelyiDBSize := 1;
 s`BelyiDBPointedSize := 1;
 s`BelyiDBPermutationTriple := [ PermutationGroup<4 |  
-\[ 2, 3, 4, 1 ]:
- Order := 4 > |
+\[ 2, 3, 4, 1 ],
+\[ 2, 1, 3, 4 ]:
+ Order := 24 > |
 [ 2, 3, 4, 1 ],
 [ 2, 3, 4, 1 ],
 [ 3, 4, 1, 2 ]
@@ -77,34 +78,18 @@ s`BelyiDBPassport := [ PowerSequence(PermutationGroup<4 |
 ]
 ];
 s`BelyiDBPointedPassport := [ PowerSequence(PermutationGroup<4 |  
-\[ 2, 3, 4, 1 ]:
- Order := 4 >) |
+\[ 2, 3, 4, 1 ],
+\[ 2, 1, 3, 4 ]:
+ Order := 24 >) |
 [ PermutationGroup<4 |  
-\[ 2, 3, 4, 1 ]:
- Order := 4 > |
+\[ 2, 3, 4, 1 ],
+\[ 2, 1, 3, 4 ]:
+ Order := 24 > |
 [ 2, 3, 4, 1 ],
 [ 2, 3, 4, 1 ],
 [ 3, 4, 1, 2 ]
 ]
 ];
-s`BelyiDBGaloisOrbits := [ PowerSequence(PowerSequence(PermutationGroup<4 |  
-\[ 2, 3, 4, 1 ]:
- Order := 4 >)) |
-[ PowerSequence(PermutationGroup<4 |  
-\[ 2, 3, 4, 1 ]:
- Order := 4 >) |
-[ PermutationGroup<4 |  
-\[ 2, 3, 4, 1 ]:
- Order := 4 > |
-[ 2, 3, 4, 1 ],
-[ 2, 3, 4, 1 ],
-[ 3, 4, 1, 2 ]
-]
-]
-];
-s`BelyiDBSanityCheckTiming := 0.0200000000000000p15;
-s`BelyiDBLocalSanityCheckTiming := 0.0100000000000000p15;
-s`BelyiDBLocalSanityCheckPrime := 101;
 
 /*
 Numerical Data
